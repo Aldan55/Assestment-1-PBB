@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Assesmen 1 PBB</string>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <string name="title">Temp Converter</string>
+    <string name="label_opsi">Opsi konversi:</string>
+    <string name="convertButt">Convert</string>
+    <string name="clearButt">Clear</string>
+    <string name="already_empty">Sudah kosong</string>
+    <string name="suhu_invalid">Suhu tidak boleh kosong</string>
+    <string name="suhuC_x">Hasil: %1$.2f °C</string>
+    <string name="suhuF_x">Hasil: %1$.2f °F</string>
+    <string name="suhuK_x">Hasil: %1$.2f K</string>
+
+
+    <string-array name="opsi_konv">
+        <item>Celcius -> Fahrenheit</item>
+        <item>Celcius -> Kelvin</item>
+        <item>Fahrenheit -> Celcius</item>
+        <item>Fahrenheit -> Kelvin</item>
+        <item>Kelvin -> Celcius</item>
+        <item>Kelvin -> Fahrenheit</item>
+    </string-array>
+
+    <string name="label_suhu">Suhu:</string>
+
 </resources>
