@@ -65,22 +65,26 @@
             android:id="@+id/suhuTf"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/horizontal_margin"
             android:layout_marginTop="8dp"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/label_simbol"
             app:layout_constraintStart_toStartOf="@+id/spinner1"
             app:layout_constraintTop_toBottomOf="@+id/spinner1" />
-        <Button
-            android:id="@+id/convert"
+
+        <TextView
+            android:id="@+id/label_simbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/convertButt"
-            app:layout_constraintStart_toStartOf="@+id/suhuTf"
-            app:layout_constraintTop_toBottomOf="@+id/suhuTf" />
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:labelFor="@id/spinner1"
+            android:text="°C"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/suhuTf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/suhuTf" />
 
         <Button
             android:id="@+id/clear"
@@ -88,8 +92,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/clearButt"
-            app:layout_constraintStart_toStartOf="@+id/convert"
-            app:layout_constraintTop_toBottomOf="@+id/convert" />
+            app:layout_constraintStart_toStartOf="@+id/suhuTf"
+            app:layout_constraintTop_toBottomOf="@+id/suhuTf" />
 
         <View
             android:id="@+id/divider"
@@ -114,5 +118,36 @@
             app:layout_constraintTop_toBottomOf="@+id/divider"
             tools:text="test" />
 
+        <Button
+            android:id="@+id/formulaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/lihat_formula"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/shareButton"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@+id/hasilSuhu" />
+        <Button
+            android:id="@+id/shareButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/share"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/formulaButton"
+            app:layout_constraintTop_toTopOf="@+id/formulaButton" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/buttonGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:constraint_referenced_ids="formulaButton,shareButton"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

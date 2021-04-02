@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/hitungFragment">
+
+    <fragment
+        android:id="@+id/hitungFragment"
+        android:name="org.d3if0042.assesmen1pbb.ui.HitungFragment"
+        android:label="HitungFragment"
+        tools:layout="@layout/fragment_hitung">
+        <action
+            android:id="@+id/action_hitungFragment_to_formulaFragment"
+            app:destination="@id/formulaFragment" />
+        <action
+            android:id="@+id/action_hitungFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formulaFragment"
+        android:name="org.d3if0042.assesmen1pbb.ui.FormulaFragment"
+        android:label="FormulaFragment"
+        tools:layout="@layout/fragment_formula">
+        <argument
+            android:name="convWhat"
+            app:argType="string" />
+        <argument
+            android:name="suhu_awal"
+            app:argType="string" />
+        <argument
+            android:name="suhu_hasil"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="org.d3if0042.assesmen1pbb.ui.AboutFragment"
+        android:label="AboutFragment"
+        tools:layout="@layout/fragment_about"/>
+</navigation>
