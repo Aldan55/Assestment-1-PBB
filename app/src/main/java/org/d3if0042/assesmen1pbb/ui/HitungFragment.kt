@@ -17,8 +17,6 @@ import org.d3if0042.assesmen1pbb.R
 import org.d3if0042.assesmen1pbb.databinding.FragmentHitungBinding
 import java.util.*
 
-const val KEY_USER_TEMP= "user_temp_key"
-
 class HitungFragment : Fragment() {
     private lateinit var binding: FragmentHitungBinding
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -32,14 +30,6 @@ class HitungFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-    private var suhuUser= 0
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putInt(KEY_USER_TEMP, suhuUser)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         binding= FragmentHitungBinding.inflate(layoutInflater, container, false)
         binding.shareButton.setOnClickListener { shareData() }
@@ -85,12 +75,16 @@ class HitungFragment : Fragment() {
             val hasil= binding.hasilSuhu.text.toString()
             val suhu_awal= binding.suhuTf.text.toString()
             val suhu_hasil = hasil.substring(startIndex = 6)
+            val labelSuhu= binding.labelSimbol.text.toString()
+            val convUnit= binding.convSuhu.text.toString()
 
-            val action= HitungFragmentDirections.actionHitungFragmentToFormulaFragment(conv, suhu_awal, suhu_hasil)
+            val message =  getString(R.string.bagikan_template, suhu_awal, labelSuhu, convUnit, suhu_hasil)
+            val action= HitungFragmentDirections.actionHitungFragmentToFormulaFragment(conv, suhu_awal, suhu_hasil, message)
             findNavController().navigate(action)
         }
 
         setHasOptionsMenu(true)
+
         return binding.root
     }
 
@@ -115,25 +109,31 @@ class HitungFragment : Fragment() {
         else if (convertWhat.equals("Celsius -> Fahrenheit")){
             val hasil= suhu.toFloat()* 1.8 + 32.0
             binding.hasilSuhu.text= getString(R.string.suhuF_x, hasil)
+            binding.convSuhu.text= getString(R.string.fahrenheit)
         }else if(convertWhat.equals("Celsius -> Kelvin")){
             val hasil= suhu.toFloat() + 273.15
             binding.hasilSuhu.text= getString(R.string.suhuK_x, hasil)
+            binding.convSuhu.text= getString(R.string.kelvin)
         }
         else if(convertWhat.equals("Fahrenheit -> Celsius")){
             val hasil= ((suhu.toFloat()-32.0) * 5.0) /9.0
             binding.hasilSuhu.text= getString(R.string.suhuC_x, hasil)
+            binding.convSuhu.text= getString(R.string.celsius)
         }
         else if(convertWhat.equals("Fahrenheit -> Kelvin")){
             val hasil= 273.5 + ((suhu. toFloat() -32.0) *5.0) /9.0
             binding.hasilSuhu.text= getString(R.string.suhuK_x, hasil)
+            binding.convSuhu.text= getString(R.string.kelvin)
         }
         else if(convertWhat.equals("Kelvin -> Celsius")){
             val hasil= suhu.toFloat() - 273.15
             binding.hasilSuhu.text= getString(R.string.suhuC_x, hasil)
+            binding.convSuhu.text= getString(R.string.celsius)
         }
         else if(convertWhat.equals("Kelvin -> Fahrenheit")){
             val hasil= ((suhu.toFloat() - 273.15) *9) /5 +32
             binding.hasilSuhu.text= getString(R.string.suhuF_x, hasil)
+            binding.convSuhu.text= getString(R.string.fahrenheit)
         }
         binding.hasilSuhu.visibility = View.VISIBLE
         binding.formulaButton.visibility = View.VISIBLE
@@ -142,12 +142,21 @@ class HitungFragment : Fragment() {
     }
     private fun shareData() {
         val shareIntent = Intent(Intent.ACTION_SEND)
-        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, "test")
+
+        val suhuAwal = binding.suhuTf.text.toString()
+        val labelSuhu= binding.labelSimbol.text.toString()
+        val convUnit= binding.convSuhu.text.toString()
+        val hasil= binding.hasilSuhu.text.toString()
+        val subStrHasil=  hasil.substring(startIndex = 6)
+
+        val message =  getString(R.string.bagikan_template, suhuAwal, labelSuhu, convUnit, subStrHasil)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, message)
         if (shareIntent.resolveActivity(
                 requireActivity().packageManager) != null) {
             startActivity(shareIntent)
         }
     }
+
 
     private fun reset(){
         val suhu= binding.suhuTf.text.toString()

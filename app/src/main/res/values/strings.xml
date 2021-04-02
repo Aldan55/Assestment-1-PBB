@@ -12,6 +12,12 @@
     <string name="suhuK_x">Hasil: %1$.2f K</string>
     <string name="lihat_formula">Rumus</string>
     <string name="share">Bagikan</string>
+    <string name="rumus_title">Rumus</string>
+
+    <string name="celsius">Celsius</string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="kelvin">Kelvin</string>
+
     <string name="judul_CF">Konversi Celsius ke Fahrenheit</string>
     <string name="judul_CK">Konversi Celsius ke Kelvin</string>
     <string name="judul_FC">Konversi Fahrenheit ke Celsius</string>
@@ -39,15 +45,13 @@
     <string name="label_suhu">Suhu:</string>
 
     <string name="copyright">Temp Converter adalah aplikasi yang berfungsi untuk menkonversi suatu satuan suhu ke satuan suhu lainnya.
-        Satuan suhu yang dapat dikonversikan antara lain Celsius, Fahrenheit, Kelvin.
-        \n\nAplikasi bertujuan untuk memenuhi tugas Assestment 1 Pemrograman untuk Perangkat Bergerak 1.
+        Satuan suhu yang dapat dikonversikan antara lain Celsius, Fahrenheit, dan Kelvin.
+        \n\nAplikasi ini bertujuan untuk memenuhi tugas Assestment 1 Pemrograman untuk Perangkat Bergerak 1.
         Temukan kodenya di https://github.com/Aldan55/Assestment-1-PBB
         \n\nCopyright © 2021 Muhammad Aldan Devaney.\nAll rights reserved.</string>
 
 
     <string name="tentang_aplikasi">About</string>
 
-    <string name="bagikan_template">Berat badan: %1$s kg\nTinggi badan: %2$s cm\nJenis kelamin: %3$s\n\n%4$s\n%5$s</string>
-
-
+    <string name="bagikan_template">Hai, tahukah kamu konversi suhu %1$s %2$s ke %3$s adalah %4$s </string>
 </resources>

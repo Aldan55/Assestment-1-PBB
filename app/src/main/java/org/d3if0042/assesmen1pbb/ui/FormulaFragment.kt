@@ -1,5 +1,6 @@
 package org.d3if0042.assesmen1pbb.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +16,12 @@ class FormulaFragment:Fragment() {
     private val args: FormulaFragmentArgs by navArgs()
     private lateinit var binding: FragmentFormulaBinding
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentFormulaBinding.inflate(layoutInflater, container, false)
 
         updateUI()
+        binding.shareButton.setOnClickListener { shareData() }
 
         return binding.root
     }
@@ -58,5 +61,17 @@ class FormulaFragment:Fragment() {
         }
 
 
+
+    }
+
+
+
+    private fun shareData() {
+        val shareIntent = Intent(Intent.ACTION_SEND)
+        shareIntent.setType("text/plain").putExtra(Intent.EXTRA_TEXT, args.tinggalKirim)
+        if (shareIntent.resolveActivity(
+                requireActivity().packageManager) != null) {
+            startActivity(shareIntent)
+        }
     }
 }

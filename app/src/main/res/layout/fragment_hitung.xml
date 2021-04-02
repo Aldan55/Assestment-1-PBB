@@ -149,5 +149,16 @@
             android:visibility="invisible"
             app:constraint_referenced_ids="formulaButton,shareButton"
             tools:visibility="visible" />
+        <TextView
+            android:id="@+id/convSuhu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            tools:text="Fahrenheit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
