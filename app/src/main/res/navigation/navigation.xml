@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_hitungFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_hitungFragment_to_historiFragment"
+            app:destination="@id/historiFragment" />
     </fragment>
     <fragment
         android:id="@+id/formulaFragment"
@@ -40,4 +43,10 @@
         android:name="org.d3if0042.assesmen1pbb.ui.AboutFragment"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"/>
+
+    <fragment
+    android:id="@+id/historiFragment"
+    android:name="org.d3if0042.assesmen1pbb.ui.HistoriFragment"
+    android:label="HistoriFragment"
+    tools:layout="@layout/fragment_histori"/>
 </navigation>

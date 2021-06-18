@@ -5,6 +5,7 @@
     <string name="label_opsi">Opsi konversi:</string>
     <string name="convertButt">Convert</string>
     <string name="clearButt">Clear</string>
+    <string name="hitungButt">Hitung</string>
     <string name="already_empty">Sudah kosong</string>
     <string name="suhu_invalid">Suhu tidak boleh kosong</string>
     <string name="suhuC_x">Hasil: %1$.2f °C</string>
@@ -54,4 +55,8 @@
     <string name="tentang_aplikasi">About</string>
 
     <string name="bagikan_template">Hai, tahukah kamu konversi suhu %1$s %2$s ke %3$s adalah %4$s </string>
+
+    <string name="belum_ada_data">Belum ada data</string>
+    <string name="histori">Histori</string>
+
 </resources>
